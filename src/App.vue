@@ -1,4 +1,5 @@
 <script setup>
+
 import { ref } from 'vue'
 
 const nome = ref('')
@@ -16,28 +17,23 @@ const ok = ref(false)
 
 </script>
 
-
 <template>
-  <div>
-    <button>Nome:</button>
+<form class="form" >
+    <div class="centro ">
+    <label for="">Nome:</label>
     <input type="text" v-on:keypress="ok=false" v-model="nome" placeholder="Digite seu nome" />
-    <p>O nome digitado é: {{ nome }}</p>
     <hr>
-    <button>Data de nascimento:</button>
-    <input type="text" v-on:keypress="ok=false" v-model="data" placeholder="Digite sua data" />
-    <p>A data digitada é: {{ data }}</p>
+    <label for="" >Data de nascimento:</label>
+    <input type="date" v-on:keypress="ok=false" v-model="data" placeholder="Digite sua data" />
     <hr>
-    <button>Email:</button>
+    <label for="" >Email:</label>
     <input type="email" v-on:keypress="ok=false" v-model="email" placeholder="Digite seu email" />
-    <p>O email digitado é: {{ email }}</p>
     <hr>
-    <button>Endereço:</button>
+    <label for="" >Endereço:</label>
     <input type="text" v-on:keypress="ok=false" v-model="endereco" placeholder="Digite seu endereço" />
-    <p>O endereço digitado é: {{ endereco }}</p>
     <hr>
-    <button>Cidade:</button>
+    <label for="" >Cidade:</label>
     <input type="text" v-on:keypress="ok=false" v-model="cidade" placeholder="Digite sua cidade" />
-    <p>A cidade digitada é: {{ cidade }}</p>
     <hr>
     <label for="estado" >Estado:</label>
     <select v-on:keypress="ok=false" v-model="estado">
@@ -68,41 +64,58 @@ const ok = ref(false)
       <option value="SE">Sergipe</option>
       <option value="TO">Tocantins</option>
      </select>
-    <p>O estado digitado é: {{ estado }}</p>
     <hr>
-    <button>Hobbie:</button>
+    <label for="" >Hobbie:</label>
     <input type="text" v-on:keypress="ok=false" v-model="hobbie" placeholder="Digite seu hobbie" />
-    <p>O hobbie digitado é: {{ hobbie }}</p>
     <hr>
-    <button>Linguagem de programação:</button>
+    <label for="" >Linguagem de programação:</label>
     <input type="text" v-on:keypress="ok=false" v-model="linguagem" placeholder="Digite sua linguagem" />
-    <p>A linguagem digitada é: {{ linguagem }}</p>
     <hr>
-    <button>Biografia:</button>
+    <label for="" >Biografia:</label>
     <input type="text" v-on:keypress="ok=false" v-model="biografia" placeholder="Digite sua biografia" />
-    <p>A biografia digitada é: {{ biografia }}</p>
     <hr>
-    <button>Senha:</button>
+    <label for="" >Senha:</label>
     <input type="password" v-on:keypress="ok=false" v-model="senha" placeholder="Digite sua senha" />
-    <p>A senha digitada é: {{ senha }}</p>
     <hr>
-    <button>Confirmação de senha:</button>
+    <label for="" >Confirmar senha:</label>
     <input type="password" v-on:keypress="ok=false" v-model="confirma" placeholder="Digite sua senha novamente" />
-    <p>A confirmação digitada é: {{ confirma }}</p>
     <hr>
     <button @click="ok = !ok">Mostrar</button>
-  </div>
-  <div v-if="ok">
-    <p>O nome digitado é: {{ nome }}</p>
-    <p>A data digitada é: {{ data }}</p>
-    <p>O email digitado é: {{ email }}</p>
-    <p>O endereço digitado é: {{ endereco }}</p>
-    <p>A cidade digitada é: {{ cidade }}</p>
-    <p>O estado digitado é: {{ estado }}</p>
-    <p>O hobbie digitado é: {{ hobbie }}</p>
-    <p>A linguagem digitada é: {{ linguagem }}</p>
-    <p>A biografia digitada é: {{ biografia }}</p>
-    <p>A senha digitada é: {{ senha }}</p>
-    <p>A confirmação digitada é: {{ confirma }}</p> 
-  </div>
+    </div>
+    <div v-if="ok" class="centro">
+      <p>O nome digitado é: {{ nome }}</p>
+      <p>A data digitada é: {{ data }}</p>
+      <p>O email digitado é: {{ email }}</p>
+      <p>O endereço digitado é: {{ endereco }}</p>
+      <p>A cidade digitada é: {{ cidade }}</p>
+      <p>O estado digitado é: {{ estado }}</p>
+      <p>O hobbie digitado é: {{ hobbie }}</p>
+      <p>A linguagem digitada é: {{ linguagem }}</p>
+      <p>A biografia digitada é: {{ biografia }}</p>
+      <p>A senha digitada é: {{ senha }}</p>
+      <p>A confirmação digitada é: {{ confirma }}</p> 
+    </div>
+  </form>
 </template>
+
+<style scoped>
+button {
+  font-weight: bold;
+  color: brown;
+}
+.centro {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 auto;
+      margin-top: 3%;
+      background-color: brown;
+      border-radius: 10px;
+      width: 50%;
+     color: aliceblue;
+}
+
+
+
+
+</style>
