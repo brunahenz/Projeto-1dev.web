@@ -14,6 +14,17 @@ const biografia = ref('')
 const senha = ref('')
 const confirma = ref('')
 const ok = ref(false)
+const user = ref({
+  avatar: null
+})
+
+function handleFileUpload(e) {
+  const target = e.target
+  if (target && target.files) {
+    const file = target.files[0]
+    user.value.avatar = URL.createObjectURL(file)
+  }
+}
 
 </script>
 
@@ -21,7 +32,13 @@ const ok = ref(false)
 <form class="form" >
     <div class="centro ">
     <label for="">Nome:</label>
-    <input type="text" v-on:keypress="ok=false" v-model="nome" placeholder="Digite seu nome" />
+    <input
+    type="file"
+    id="avatarField"
+    @change="handleFileUpload($event)"
+    />
+    <img :src="user.avatar" />
+    <input type="text" v-on:keypress="ok=false" v-model="nome" required placeholder="Digite seu nome" />
     <hr>
     <label for="" >Data de nascimento:</label>
     <input type="date" v-on:keypress="ok=false" v-model="data" placeholder="Digite sua data" />
@@ -69,16 +86,22 @@ const ok = ref(false)
     <input type="text" v-on:keypress="ok=false" v-model="hobbie" placeholder="Digite seu hobbie" />
     <hr>
     <label for="" >Linguagem de programação:</label>
-    <input type="text" v-on:keypress="ok=false" v-model="linguagem" placeholder="Digite sua linguagem" />
+    <input type="radio" v-on:keypress="ok=false" v-model="linguagem" value="JavaScript" /> JavaScript
+    <input type="radio" v-on:keypress="ok=false" v-model="linguagem" value="Python" /> Python
+    <input type="radio" v-on:keypress="ok=false" v-model="linguagem" value="C#" /> C#
+    <input type="radio" v-on:keypress="ok=false" v-model="linguagem" value="Php" /> Php
+    <input type="radio" v-on:keypress="ok=false" v-model="linguagem" value="SQL" /> SQL
+    <input type="radio" v-on:keypress="ok=false" v-model="linguagem" value="R" /> R
+    <input type="radio" v-on:keypress="ok=false" v-model="linguagem" value="VBA" /> VBA
     <hr>
     <label for="" >Biografia:</label>
-    <input type="text" v-on:keypress="ok=false" v-model="biografia" placeholder="Digite sua biografia" />
+    <input type="text" v-on:keypress="ok=false" v-model="biografia" style="padding: 30px;" placeholder="Digite sua biografia"/>
     <hr>
     <label for="" >Senha:</label>
-    <input type="password" v-on:keypress="ok=false" v-model="senha" placeholder="Digite sua senha" />
+    <input type="password" v-on:keypress="ok=false" v-model="senha" minlength="6" placeholder="Digite sua senha" />
     <hr>
     <label for="" >Confirmar senha:</label>
-    <input type="password" v-on:keypress="ok=false" v-model="confirma" placeholder="Digite sua senha novamente" />
+    <input type="password" v-on:keypress="ok=false" v-model="confirma" minlength="6" placeholder="Digite sua senha novamente" />
     <hr>
     <button @click="ok = !ok">Mostrar</button>
     </div>
@@ -99,6 +122,7 @@ const ok = ref(false)
 </template>
 
 <style scoped>
+
 button {
   font-weight: bold;
   color: brown;
@@ -112,7 +136,7 @@ button {
       background-color: brown;
       border-radius: 10px;
       width: 50%;
-     color: aliceblue;
+      color: aliceblue;
 }
 
 
