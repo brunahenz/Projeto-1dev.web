@@ -36,7 +36,7 @@ function validar() {
 </script>
 
 <template>
-  <form class="form" @submit.prevent="ok=validar()">
+  <form class="form" @submit.prevent="ok = validar()">
     <div class="centro ">
       <input type="file" id="avatarField" @change="handleFileUpload($event)" />
       <label for="">Nome:</label>
@@ -85,20 +85,24 @@ function validar() {
       </select>
       <hr>
       <label for="hobbie">Hobbie:</label>
-      <input class="opcao" type="checkbox" v-model="hobbie" v-on:keypress="ok = false" value="Esporte" /> Esporte
-      <input class="opcao" type="checkbox" v-model="hobbie" v-on:keypress="ok = false" value="Video Game" /> Video Game
-      <input class="opcao" type="checkbox" v-model="hobbie" v-on:keypress="ok = false" value="Leitura" /> Leitura
-      <input class="opcao" type="checkbox" v-model="hobbie" v-on:keypress="ok = false" value="Estudos" /> Estudos
-      <input class="opcao" type="checkbox" v-model="hobbie" v-on:keypress="ok = false" value="Viajar" /> Viajar
+      <div class="opcao">
+        <input type="checkbox" v-model="hobbie" v-on:keypress="ok = false" value="Esporte" /> Esporte
+        <input type="checkbox" v-model="hobbie" v-on:keypress="ok = false" value="Video Game" /> Video Game
+        <input type="checkbox" v-model="hobbie" v-on:keypress="ok = false" value="Leitura" /> Leitura
+        <input type="checkbox" v-model="hobbie" v-on:keypress="ok = false" value="Estudos" /> Estudos
+        <input type="checkbox" v-model="hobbie" v-on:keypress="ok = false" value="Viajar" /> Viajar
+      </div>
       <hr>
       <label for="">Linguagem de programação:</label>
-      <input class="opcao" type="radio" v-on:keypress="ok = false" v-model="linguagem" value="JavaScript" /> JavaScript
-      <input class="opcao" type="radio" v-on:keypress="ok = false" v-model="linguagem" value="Python" /> Python
-      <input class="opcao" type="radio" v-on:keypress="ok = false" v-model="linguagem" value="C#" /> C#
-      <input class="opcao" type="radio" v-on:keypress="ok = false" v-model="linguagem" value="Php" /> Php
-      <input class="opcao" type="radio" v-on:keypress="ok = false" v-model="linguagem" value="SQL" /> SQL
-      <input class="opcao" type="radio" v-on:keypress="ok = false" v-model="linguagem" value="R" /> R
-      <input class="opcao" type="radio" v-on:keypress="ok = false" v-model="linguagem" value="VBA" /> VBA
+      <div class="opcao">
+        <input type="radio" v-on:keypress="ok = false" v-model="linguagem" value="JavaScript" /> JavaScript
+        <input type="radio" v-on:keypress="ok = false" v-model="linguagem" value="Python" /> Python
+        <input type="radio" v-on:keypress="ok = false" v-model="linguagem" value="C#" /> C#
+        <input type="radio" v-on:keypress="ok = false" v-model="linguagem" value="Php" /> Php
+        <input type="radio" v-on:keypress="ok = false" v-model="linguagem" value="SQL" /> SQL
+        <input type="radio" v-on:keypress="ok = false" v-model="linguagem" value="R" /> R
+        <input type="radio" v-on:keypress="ok = false" v-model="linguagem" value="VBA" /> VBA
+      </div>
       <hr>
       <label for="">Biografia:</label>
       <input type="text" v-on:keypress="ok = false" v-model="biografia" style="padding: 30px;"
@@ -133,7 +137,7 @@ function validar() {
 <style scoped>
 button {
   font-weight: bold;
-  color: brown;
+  color: blue;
 }
 
 .centro {
@@ -142,11 +146,14 @@ button {
   align-items: center;
   margin: 0 auto;
   margin-top: 3%;
-  background-color: brown;
+  background-color: rgb(128, 49, 49);
   border-radius: 10px;
   width: 50%;
   color: aliceblue;
+  background-image: linear-gradient(to right, rgb(128, 49, 49), black);
 }
 
-
+.opcao {
+  display: flex;
+}
 </style>
